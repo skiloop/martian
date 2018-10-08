@@ -46,6 +46,14 @@ func SetLevel(l int) {
 	level = l
 }
 
+// SetLevel sets the global log level.
+func GetLevel() int {
+	lock.Lock()
+	defer lock.Unlock()
+
+	return level
+}
+
 // Infof logs an info message.
 func Infof(format string, args ...interface{}) {
 	lock.Lock()
